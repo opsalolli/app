@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": "cd frontend && yarn install --frozen-lockfile && npx expo export --platform web --output-dir ../public",
+  "outputDirectory": "public",
+  "installCommand": "echo 'skip-root-install'",
+  "functions": {
+    "api/index.py": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.py" },
+    { "source": "/(.*)",     "destination": "/index.html" }
+  ]
+}
